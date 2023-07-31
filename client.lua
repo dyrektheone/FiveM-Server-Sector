@@ -2,12 +2,37 @@ local FirstSpawnDetected = false
 local SectorData = {}
 local CanOpen = true
 
+-- Command handler function
+function OpenUI()
+    if CanOpen then
+        NUISwitch(true)
+    end
+end
+
+local allowedToUse = false
+Citizen.CreateThread(function()
+    TriggerServerEvent("sectors.getIsAllowed")
+end)
+
+RegisterNetEvent("sectors.returnIsAllowed")
+AddEventHandler("sectors.returnIsAllowed", function(isAllowed)
+    allowedToUse = isAllowed
+end)
+
+-- Register the command "/sectors" to open the UI
+RegisterCommand("sectors", function()
+    if allowedToUse then
+        OpenUI()
+    end
+end)
+
 Citizen.CreateThread(function()
     DoScreenFadeIn(0)
-    while true do Wait(0)
-        if IsControlJustPressed(0,170) and CanOpen then 
-            NUISwitch(true)
-        end
+    while true do
+        Citizen.Wait(0)
+        -- if IsControlJustPressed(0, 170) and CanOpen then
+        --     NUISwitch(true)
+        -- end
     end
 end)
 
@@ -15,10 +40,10 @@ function NUISwitch(b)
     SendNUIMessage({
         show = b
     })
-    SetNuiFocus(b,b)
+    SetNuiFocus(b, b)
 
-    if not b then 
-        CanOpen = false 
+    if not b then
+        CanOpen = false
         Citizen.CreateThread(function()
             Wait(Config.Client.OpenCooldown)
             CanOpen = true
