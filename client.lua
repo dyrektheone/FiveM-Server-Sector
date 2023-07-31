@@ -26,16 +26,6 @@ RegisterCommand("sectors", function()
     end
 end)
 
-Citizen.CreateThread(function()
-    DoScreenFadeIn(0)
-    while true do
-        Citizen.Wait(0)
-        -- if IsControlJustPressed(0, 170) and CanOpen then
-        --     NUISwitch(true)
-        -- end
-    end
-end)
-
 function NUISwitch(b)
     SendNUIMessage({
         show = b
