@@ -3,7 +3,6 @@ Config.Client = {}
 Config.Server = {}
 
 
-Config.Client.InteractionKey = 170             --   https://docs.fivem.net/docs/game-references/controls/
 Config.Client.ScreenFadeOnChange = true       --   Do a screen fade animation when the user joins another sector
 Config.Client.OpenCooldown = 0                 --   The user can't reopen the sector menu for this many miliseconds
 
