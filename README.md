@@ -15,6 +15,7 @@ RegisterNetEvent("server_sector:changedSector",function(newSector)
 end)
 ```
 Using this you can for example teleport the player somewhere else when they join let’s say the lobby!
+(newSector is the SectorId from the config)
 
 
 
