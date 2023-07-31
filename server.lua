@@ -1,10 +1,7 @@
 RegisterServerEvent("sectors.getIsAllowed")
 AddEventHandler("sectors.getIsAllowed", function()
-    if IsPlayerAceAllowed(source, "command.sectors") then
-        TriggerClientEvent("sectors.returnIsAllowed", source, true)
-    else
-        TriggerClientEvent("sectors.returnIsAllowed", source, false)
-    end
+local isAllowed = IsPlayerAceAllowed(source, "command.sectors")
+TriggerClientEvent("sectors.returnIsAllowed", source, isAllowed )
 end)
 
 AddEventHandler("playerDropped",function()
