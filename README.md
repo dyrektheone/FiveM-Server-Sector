@@ -9,10 +9,11 @@ All you have to do is edit the config file. I included a little documentation so
 If you have any questions feel free to ask me in messages, or here under this post.
 
 When the user joins another sector a client event gets triggered: “server_sector:changedSector”
-
+```lua
 RegisterNetEvent("server_sector:changedSector",function(newSector)
     print("yay, I joined", newSector)
 end)
+```
 Using this you can for example teleport the player somewhere else when they join let’s say the lobby!
 
 
