@@ -5,6 +5,8 @@ Using FiveM's bucket system I created a resource that allows the server owners t
 *This gamestate-split feature exists in FiveM by default, I just made a resource so it can be used easier.*
 
 ## Usage
+Client usage: /sectors command
+
 All you have to do is edit the config file. I included a little documentation so you can understand it better.
 If you have any questions feel free to ask me in messages, or here under this post.
 
